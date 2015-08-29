@@ -38,7 +38,11 @@ class TwitterController extends Controller
 	 *     ),
 	 *     @SWG\Response(
 	 *         response=404,
-	 *         description="Not found",
+	 *         description="Not Found",
+	 *     ),
+	 *     @SWG\Response(
+	 *         response=500,
+	 *         description="Internal Server Error",
 	 *     )
 	 * )
 	 */
@@ -61,7 +65,7 @@ class TwitterController extends Controller
     		->performRequest());
 
     	if (empty($result) || isset($result->error) || isset($result->errors)) {
-    		return response()->json(array("error" => "Not found."), 404);
+    		return response()->json(array("error" => "Not Found"), 404);
     	}
     	else {
 	    	return response()->json($result);
@@ -99,11 +103,11 @@ class TwitterController extends Controller
 	 *     ),
 	 *     @SWG\Response(
 	 *         response=404,
-	 *         description="Not found",
+	 *         description="Not Found",
 	 *     ),
 	 *     @SWG\Response(
 	 *         response=500,
-	 *         description="no content",
+	 *         description="Internal Server Error",
 	 *     )
 	 * )
 	 */

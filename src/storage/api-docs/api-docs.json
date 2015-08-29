@@ -47,7 +47,10 @@
                         "description": "Success"
                     },
                     "404": {
-                        "description": "Not found"
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -86,10 +89,10 @@
                         "description": "Success"
                     },
                     "404": {
-                        "description": "Not found"
+                        "description": "Not Found"
                     },
                     "500": {
-                        "description": "no content"
+                        "description": "Internal Server Error"
                     }
                 }
             }
