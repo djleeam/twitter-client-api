@@ -11,20 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function ()
+{
+    //return view('welcome');
+    return redirect('/api-docs');
 });
 
-Route::get('/home', function () {
-    $user = Auth::user();
-    return 'welcome home '. $user->name;
+Route::group(array('prefix' => 'api/v1'), function()
+{
+	Route::get('/users/{user_name}/recentTweets.json', 'TwitterController@getRecentTweets');
+
+	Route::get('/users/commonFriends.json', 'TwitterController@getCommonFriends');
 });
-
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');

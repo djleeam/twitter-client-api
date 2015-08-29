@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "j7mbo/twitter-api-php": "~1.0",
+        "darkaonline/l5-swagger": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

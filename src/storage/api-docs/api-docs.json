@@ -1,0 +1,99 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Twitter Client API",
+        "description": "Twitter Client API Documentation",
+        "contact": {
+            "name": "ltruong0968@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users/{user_name}/recentTweets.json": {
+            "get": {
+                "tags": [
+                    "users: Operations for users"
+                ],
+                "summary": "Get recent tweets",
+                "description": "Given a twitter username, return the user's most recent tweets",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_name",
+                        "in": "path",
+                        "description": "twitter handle; i.e., @StephenCurry30",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "number of recent tweets to retrieve",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        },
+        "/users/commonFriends.json": {
+            "get": {
+                "tags": [
+                    "users: Operations for users"
+                ],
+                "summary": "Get common friends",
+                "description": "Given two twitter usernames, return the intersection of the users that both given users follow",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "user_name1",
+                        "in": "query",
+                        "description": "twitter handle; i.e., @StephenCurry30",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_name2",
+                        "in": "query",
+                        "description": "twitter handle; i.e., @KlayThompson",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "500": {
+                        "description": "no content"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
